@@ -17,7 +17,7 @@ import static org.junit.Assert.*;
 public class CustomerDaoJdbcTemplateImplTest {
 
     @Autowired
-    CustomerDao customerDao;
+    private CustomerDao customerDao;
 
     @Before
     public void setUp() throws Exception {

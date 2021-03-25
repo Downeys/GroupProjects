@@ -1,12 +1,13 @@
 package com.company.U1M6GroupProject.models;
 
+import java.math.BigDecimal;
 import java.util.Objects;
 
 public class Item {
     private int itemId;
     private String name;
     private String description;
-    private double dailyRate;
+    private BigDecimal dailyRate;
 
     public int getItemId() {
         return itemId;
@@ -32,11 +33,11 @@ public class Item {
         this.description = description;
     }
 
-    public double getDailyRate() {
+    public BigDecimal getDailyRate() {
         return dailyRate;
     }
 
-    public void setDailyRate(double dailyRate) {
+    public void setDailyRate(BigDecimal dailyRate) {
         this.dailyRate = dailyRate;
     }
 
@@ -45,7 +46,7 @@ public class Item {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Item item = (Item) o;
-        return itemId == item.itemId && Double.compare(item.dailyRate, dailyRate) == 0 && Objects.equals(name, item.name) && Objects.equals(description, item.description);
+        return itemId == item.itemId && Objects.equals(name, item.name) && Objects.equals(description, item.description) && Objects.equals(dailyRate, item.dailyRate);
     }
 
     @Override

@@ -1,9 +1,13 @@
-package com.company.U1M6GroupProject.models;
+package com.company.U1M6GroupProject.viewModels;
+
+import com.company.U1M6GroupProject.models.Invoice;
 
 import javax.validation.constraints.NotEmpty;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
-public class Customer {
+public class CustomerViewModel {
     private int customerId;
     @NotEmpty
     private String firstName;
@@ -15,6 +19,7 @@ public class Customer {
     private String company;
     @NotEmpty
     private String phone;
+    private List<Invoice> invoices = new ArrayList<>();
 
     public int getCustomerId() {
         return customerId;
@@ -64,28 +69,37 @@ public class Customer {
         this.phone = phone;
     }
 
+    public List<Invoice> getInvoices() {
+        return invoices;
+    }
+
+    public void setInvoices(List<Invoice> invoices) {
+        this.invoices = invoices;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Customer customer = (Customer) o;
-        return customerId == customer.customerId && Objects.equals(firstName, customer.firstName) && Objects.equals(lastName, customer.lastName) && Objects.equals(email, customer.email) && Objects.equals(company, customer.company) && Objects.equals(phone, customer.phone);
+        CustomerViewModel that = (CustomerViewModel) o;
+        return customerId == that.customerId && Objects.equals(firstName, that.firstName) && Objects.equals(lastName, that.lastName) && Objects.equals(email, that.email) && Objects.equals(company, that.company) && Objects.equals(phone, that.phone) && Objects.equals(invoices, that.invoices);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(customerId, firstName, lastName, email, company, phone);
+        return Objects.hash(customerId, firstName, lastName, email, company, phone, invoices);
     }
 
     @Override
     public String toString() {
-        return "Customer{" +
+        return "CustomerViewModel{" +
                 "customerId=" + customerId +
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", email='" + email + '\'' +
                 ", company='" + company + '\'' +
                 ", phone='" + phone + '\'' +
+                ", invoices=" + invoices +
                 '}';
     }
 }

@@ -19,7 +19,7 @@ import java.util.List;
 import static org.junit.Assert.*;
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringBootTest
-public class InvoiceItemDaoJdbcTemplateImplTest {
+public class InvoiceItemViewModelDaoJdbcTemplateImplTest {
     @Autowired
     private InvoiceItemDao invoiceItemDao;
     @Autowired
@@ -31,6 +31,10 @@ public class InvoiceItemDaoJdbcTemplateImplTest {
 
     @Before
     public void setUp() throws Exception {
+        List<InvoiceItem> invoiceItemList = invoiceItemDao.getAllInvoiceItems();
+        for (InvoiceItem i: invoiceItemList) {
+            invoiceItemDao.deleteInvoiceItem(i.getInvoiceItemId());
+        }
         List<Invoice> invoiceList = invoiceDao.getAllInvoices();
         for(Invoice i: invoiceList){
             invoiceDao.deleteInvoice(i.getInvoiceId());
@@ -42,10 +46,6 @@ public class InvoiceItemDaoJdbcTemplateImplTest {
         List<Item> itemList = itemDao.getAllItems();
         for(Item i: itemList){
             itemDao.deleteItem(i.getItemId());
-        }
-        List<InvoiceItem> invoiceItemList = invoiceItemDao.getAllInvoiceItems();
-        for (InvoiceItem i: invoiceItemList) {
-            invoiceItemDao.deleteInvoiceItem(i.getInvoiceItemId());
         }
 
     }

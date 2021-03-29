@@ -1,12 +1,16 @@
 package com.company.U1M6GroupProject.models;
 
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 import java.math.BigDecimal;
 import java.util.Objects;
 
 public class Item {
     private int itemId;
+    @NotEmpty
     private String name;
     private String description;
+    @NotNull
     private BigDecimal dailyRate;
 
     public int getItemId() {

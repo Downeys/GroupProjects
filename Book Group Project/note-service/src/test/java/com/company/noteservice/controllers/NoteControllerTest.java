@@ -159,12 +159,12 @@ public class NoteControllerTest {
 
     @Test
     public void shouldReturnStatusOKWhenUpdateIsPassedAValidNote() throws Exception{
-        String inputJsonForTest1 = mapper.writeValueAsString(testNote1);
-        String inputJsonForTest2 = mapper.writeValueAsString(testNote2);
-        String inputJsonForTest3 = mapper.writeValueAsString(testNote3);
+        String inputJsonForTest1 = mapper.writeValueAsString(testNoteOutput1);
+        String inputJsonForTest2 = mapper.writeValueAsString(testNoteOutput2);
+        String inputJsonForTest3 = mapper.writeValueAsString(testNoteOutput3);
 
         mockMvc.perform(
-                put("/notes")
+                put("/notes/1")
                 .content(inputJsonForTest1)
                 .contentType(MediaType.APPLICATION_JSON)
         )
@@ -172,7 +172,7 @@ public class NoteControllerTest {
                 .andExpect(status().isOk());
 
         mockMvc.perform(
-                put("/notes")
+                put("/notes/2")
                         .content(inputJsonForTest2)
                         .contentType(MediaType.APPLICATION_JSON)
         )
@@ -180,7 +180,7 @@ public class NoteControllerTest {
                 .andExpect(status().isOk());
 
         mockMvc.perform(
-                put("/notes")
+                put("/notes/2")
                         .content(inputJsonForTest3)
                         .contentType(MediaType.APPLICATION_JSON)
         )

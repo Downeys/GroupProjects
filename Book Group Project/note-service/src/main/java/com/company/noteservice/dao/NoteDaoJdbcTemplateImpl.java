@@ -26,9 +26,9 @@ public class NoteDaoJdbcTemplateImpl implements NoteDao{
     public static final String DELETE_NOTE =
             "delete from note where note_id = ?";
 
+    @Autowired
     JdbcTemplate jdbcTemplate;
 
-    @Autowired
     public NoteDaoJdbcTemplateImpl(JdbcTemplate jdbcTemplate){
         this.jdbcTemplate = jdbcTemplate;
     }

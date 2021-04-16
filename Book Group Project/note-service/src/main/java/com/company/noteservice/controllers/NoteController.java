@@ -24,37 +24,37 @@ public class NoteController {
     @RequestMapping(value = "/notes", method = RequestMethod.POST)
     @ResponseStatus(value = HttpStatus.CREATED)
     public Note createNote(@RequestBody Note note){
-        return null;
+        return dao.createNote(note);
     }
 
     @RequestMapping(value = "/notes/{id}", method = RequestMethod.GET)
     @ResponseStatus(value = HttpStatus.OK)
     public Note getNoteByNoteId(@PathVariable int id){
-        return null;
+        return dao.getNote(id);
     }
 
     @RequestMapping(value = "/notes/book/{book_id}", method = RequestMethod.GET)
     @ResponseStatus(value = HttpStatus.OK)
     public List<Note> getNotesByBookId(@PathVariable int book_id){
-        return null;
+        return dao.getNoteByBook(book_id);
     }
 
     @RequestMapping(value = "/notes", method = RequestMethod.GET)
     @ResponseStatus(value = HttpStatus.OK)
     public List<Note> getAllNotes(){
-        return null;
+        return dao.getAllNotes();
     }
 
     @RequestMapping(value = "/notes/{id}", method = RequestMethod.PUT)
     @ResponseStatus(value = HttpStatus.OK)
     public void updateNote(@RequestBody Note note, @PathVariable int id){
-
+        dao.updateNote(note);
     }
 
     @RequestMapping(value = "/notes/{id}", method = RequestMethod.DELETE)
     @ResponseStatus(value = HttpStatus.NO_CONTENT)
     public void deleteNote(@PathVariable int id){
-
+        dao.deleteNote(id);
     }
 
 }

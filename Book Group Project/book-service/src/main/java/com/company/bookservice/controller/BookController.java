@@ -3,6 +3,7 @@ package com.company.bookservice.controller;
 import com.company.bookservice.models.Book;
 import com.company.bookservice.models.BookViewModel;
 import com.company.bookservice.service.ServiceLayer;
+import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.http.HttpStatus;

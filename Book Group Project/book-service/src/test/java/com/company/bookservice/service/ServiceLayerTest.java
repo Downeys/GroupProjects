@@ -133,15 +133,15 @@ public class ServiceLayerTest {
         inputBookVM1.setAuthor("Fat Albert");
         inputBookVM1.setTitle("Fat Albert's Guide to Friendship");
         List<String> book1NoteList = new ArrayList<>();
-        book1NoteList.add("This is the greatest book in the world.");
+        book1NoteList.add("This is a note.");
+        book1NoteList.add("Check yes or no.");
         inputBookVM1.setNotes(book1NoteList);
 
         inputBookVM2 = new BookViewModel();
         inputBookVM2.setAuthor("David Mitchell");
         inputBookVM2.setTitle("Cloud Atlas");
         List<String> book2NoteList = new ArrayList<>();
-        book2NoteList.add("Generic Book Note");
-        book2NoteList.add("This book is better than Fat Albert's book.");
+        book2NoteList.add("This is another note.");
         inputBookVM2.setNotes(book2NoteList);
 
         outputBookVM1 = new BookViewModel();
